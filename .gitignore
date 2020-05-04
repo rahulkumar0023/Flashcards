@@ -1,0 +1,97 @@
+# Project exclude paths
+/.gradle/
+/Flashcards/task/build/
+/Flashcards/task/out/
+/Flashcards/task/out/production/classes/
+/Problems/Account/out/
+/Problems/Account/out/production/classes/
+/Problems/Alphabetical order/out/
+/Problems/Alphabetical order/out/production/classes/
+/Problems/Application as a class/out/
+/Problems/Application as a class/out/production/classes/
+/Problems/Avoid division by zero/out/
+/Problems/Avoid division by zero/out/production/classes/
+/Problems/Avoid NPE/out/
+/Problems/Avoid NPE/out/production/classes/
+/Problems/Bank account/out/
+/Problems/Bank account/out/production/classes/
+/Problems/Blacklist/out/
+/Problems/Blacklist/out/production/classes/
+/Problems/Books/out/
+/Problems/Books/out/production/classes/
+/Problems/Classes for Hospital/out/
+/Problems/Classes for Hospital/out/production/classes/
+/Problems/Compact strings with AsciiCharSequence/out/
+/Problems/Compact strings with AsciiCharSequence/out/production/classes/
+/Problems/Complex/out/
+/Problems/Complex/out/production/classes/
+/Problems/Count how many times a number occurs/out/
+/Problems/Count how many times a number occurs/out/production/classes/
+/Problems/Creating a map/out/
+/Problems/Creating a map/out/production/classes/
+/Problems/Creating a set/out/
+/Problems/Creating a set/out/production/classes/
+/Problems/Cyclically shifting elements/out/
+/Problems/Cyclically shifting elements/out/production/classes/
+/Problems/Employee/out/
+/Problems/Employee/out/production/classes/
+/Problems/Employees/out/
+/Problems/Employees/out/production/classes/
+/Problems/Find mistake/out/
+/Problems/Find mistake/out/production/classes/
+/Problems/Fix the program/out/
+/Problems/Fix the program/out/production/classes/
+/Problems/Fix the program (1)/out/
+/Problems/Fix the program (1)/out/production/classes/
+/Problems/Fix the program (2)/out/
+/Problems/Fix the program (2)/out/production/classes/
+/Problems/Getting submaps/out/
+/Problems/Getting submaps/out/production/classes/
+/Problems/Getting the fullname/out/
+/Problems/Getting the fullname/out/production/classes/
+/Problems/Guest list of a hotel/out/
+/Problems/Guest list of a hotel/out/production/classes/
+/Problems/In a box/out/
+/Problems/In a box/out/production/classes/
+/Problems/Initializing an array of integers/out/
+/Problems/Initializing an array of integers/out/production/classes/
+/Problems/Initializing an array of longs/out/
+/Problems/Initializing an array of longs/out/production/classes/
+/Problems/Inner boxes/out/
+/Problems/Inner boxes/out/production/classes/
+/Problems/Movie/out/
+/Problems/Movie/out/production/classes/
+/Problems/Mutable geometric shapes/out/
+/Problems/Mutable geometric shapes/out/production/classes/
+/Problems/Overloading methods/out/
+/Problems/Overloading methods/out/production/classes/
+/Problems/Preparing full name/out/
+/Problems/Preparing full name/out/production/classes/
+/Problems/Publication and its subclasses/out/
+/Problems/Publication and its subclasses/out/production/classes/
+/Problems/Publications/out/
+/Problems/Publications/out/production/classes/
+/Problems/Removing elements/out/
+/Problems/Removing elements/out/production/classes/
+/Problems/Representing time as a class/out/
+/Problems/Representing time as a class/out/production/classes/
+/Problems/Return empty string when argument is null/out/
+/Problems/Return empty string when argument is null/out/production/classes/
+/Problems/Safe converting/out/
+/Problems/Safe converting/out/production/classes/
+/Problems/Saying animals/out/
+/Problems/Saying animals/out/production/classes/
+/Problems/Shapes area/out/
+/Problems/Shapes area/out/production/classes/
+/Problems/Sum of numbers in the range/out/
+/Problems/Sum of numbers in the range/out/production/classes/
+/Problems/The (un)-ordered sequence/out/
+/Problems/The (un)-ordered sequence/out/production/classes/
+/Problems/Time/out/
+/Problems/Time/out/production/classes/
+/Problems/Too many cats/out/
+/Problems/Too many cats/out/production/classes/
+/Problems/Tricky sub-maps/out/
+/Problems/Tricky sub-maps/out/production/classes/
+/Problems/User/out/
+/Problems/User/out/production/classes/

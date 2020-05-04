@@ -1,0 +1,66 @@
+content:
+- Initializing an array of integers
+- Initializing an array of longs
+- The (un)-ordered sequence
+- Count how many times a number occurs
+- Cyclically shifting elements
+- Alphabetical order
+- Guest list of a hotel
+- Sum of numbers in the range
+- Overloading methods
+- Fix the program
+- Fix the program (1)
+- Fix the program (2)
+- Representing time as a class
+- Books
+- Inner boxes
+- User
+- Account
+- Account and its owner
+- Army
+- Preparing full name
+- In a box
+- Application as a class
+- Complex numbers
+- Complex
+- Account (1)
+- Getting the fullname
+- Project constants and methods
+- Too many cats
+- Time
+- Movie
+- Employee
+- Classes for Hospital
+- Bank account
+- Employees
+- Saying animals
+- Shapes area
+- Publications
+- Writing a thread for printing numbers
+- Numbers filter
+- Find mistake
+- Publication and its subclasses
+- Mutable geometric shapes
+- Account Service
+- Compact strings with AsciiCharSequence
+- Avoid division by zero
+- Return empty string when argument is null
+- Avoid NPE
+- Only true or false
+- Safe converting
+- Pastry packing optimization
+- The number of tens
+- The last day of a month
+- Check prefix ignoring the case
+- Blacklist
+- The first and the last day of a month
+- Find all mondays
+- Creating a set
+- Removing elements
+- Creating a map
+- Getting submaps
+- Tricky sub-maps
+- Reverse input text
+- String to double conversion
+- Catching some exceptions
+- Find the seed
