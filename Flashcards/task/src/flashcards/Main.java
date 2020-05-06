@@ -56,7 +56,7 @@ public class Main {
                 if(hardestCards.containsKey(key)){
                     hardestCards.computeIfPresent(key, (k,v) -> v+1);
                 }else {
-                    hardestCards.computeIfAbsent(key, k -> 1);
+                    hardestCards.put(key, 1);
                 }
 
                 if(cdMainMap.containsValue(answer)){
@@ -99,6 +99,13 @@ public class Main {
                 logs.add(mapElement.getKey() + "," + mapElement.getValue() +"\n");
                 counter++;
             }
+
+
+            for(Map.Entry<String,Integer> mapElement : hardestCards.entrySet()){
+                writer.write(mapElement.getKey() + "-" + mapElement.getValue() +"\n");
+                logs.add(mapElement.getKey() + "-" + mapElement.getValue() +"\n");
+            }
+
             System.out.println(counter + " cards have been saved.");
             logs.add(counter + " cards have been saved.");
         } catch (IOException e) {
@@ -120,11 +127,20 @@ public class Main {
         int counter = 0;
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNext()) {
-                String[] keyValue = scanner.nextLine().split(",");
-                String key = keyValue[0];
-                String value = keyValue[1];
-                cdMainMap.put(key,value);
-                counter++;
+                String nxtLine = scanner.nextLine();
+                if(nxtLine.contains(",")) {
+                    String[] keyValue = nxtLine.split(",");
+                    String key = keyValue[0];
+                    String value = keyValue[1];
+                    cdMainMap.put(key, value);
+                    counter++;
+                }
+                if(nxtLine.contains("-")){
+                    String[] keyValue = nxtLine.split("-");
+                    String key = keyValue[0];
+                    Integer value = Integer.valueOf(keyValue[1]);
+                    hardestCards.put(key, value);
+                }
             }
             System.out.println(counter+" cards have been loaded.");
             logs.add(counter+" cards have been loaded.");
@@ -146,6 +162,9 @@ public class Main {
 
         if(cdMainMap.containsKey(cardToRemove)){
             cdMainMap.remove(cardToRemove);
+            if(hardestCards.containsKey(cardToRemove)){
+                hardestCards.remove(cardToRemove);
+            }
             System.out.println("The card has been removed.\n");
             logs.add("The card has been removed.\n");
         }else{
@@ -213,6 +232,8 @@ public class Main {
 
     private void resetStats() {
         hardestCards.clear();
+        System.out.println("Card statistics has been reset.");
+        logs.add("Card statistics has been reset.");
     }
 
     private void findHardestCard() {
@@ -278,7 +299,10 @@ public class Main {
         String fileName = sc.nextLine();
         logs.add(fileName);
 
-        File file = new File("D:\\IntelliJ\\"+fileName);
+        String filePath=  new File(fileName).getAbsolutePath().replace("\\","\\\\");
+        File file = new File(filePath);
+
+      //  File file = new File("D:\\IntelliJ\\"+fileName);
 
         try (FileWriter writer = new FileWriter(file)) {
             for(String s : logs){
@@ -325,5 +349,5 @@ public class Main {
             }
 
     }
-    
+
 }
