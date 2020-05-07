@@ -5,23 +5,60 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Main {
 
     static Map<String, String> cdMainMap =  new LinkedHashMap<>();
     static List<String> logs = new ArrayList<>();
     static HashMap<String, Integer> hardestCards = new HashMap<>();
+    static String exportFileName = "random.txt";
+    static boolean exportArg = false;
 
     public static void main(String[] args) {
         Main mainObj = new Main();
-        mainObj.checkForUserInput();
+        //args = new String[]{ "-import", "derivatives.txt"};
+        if(args.length > 0){
+            if(args.length == 2){
+                    if(args[0].equals("-import")){
+                        mainObj.importCards(args[1]);
+                        mainObj.checkForUserInput();
+                    }
+                if(args[0].equals("-export")){
+                    exportFileName = args[1];
+                    exportArg = true;
+                    mainObj.checkForUserInput();
+                }
+            }
+            if(args.length ==4){
+                if(args[0].equals("-import") && args[2].equals("-export")){
+                    exportFileName = args[3];
+                    exportArg = true;
+                    mainObj.importCards(args[1]);
+                    mainObj.checkForUserInput();
+                }
+                if(args[0].equals("-export") && args[2].equals("-import")){
+                    exportFileName = args[1];
+                    exportArg = true;
+                    mainObj.importCards(args[3]);
+                    mainObj.checkForUserInput();
+                }
+            }
+
+        }else{
+            mainObj.checkForUserInput();
+        }
+
+
     }
 
     private void exitProgram() {
+        Main mainObj = new Main();
         System.out.println("Bye bye!");
         logs.add("Bye bye!");
+                if(exportArg){
+                mainObj.exportCards(exportArg);
+                }
+
     }
 
     private void ask() {
@@ -80,14 +117,21 @@ public class Main {
 
     }
 
-    private void exportCards() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("File name:");
-        logs.add("File name:");
+    private void exportCards(boolean exportArg) {
+        String fileName = "";
+        if(!exportArg){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("File name:");
+            logs.add("File name:");
 
-        String fileName = sc.nextLine();
-        logs.add(fileName);
+            fileName = sc.nextLine();
+            logs.add(fileName);
+        }else{
+            fileName = exportFileName;
+        }
 
+       // String filePath=  new File(fileName).getAbsolutePath().replace("\\","\\\\");
+        //File file = new File(filePath);
         File file = new File("D:\\IntelliJ\\"+fileName);
         int counter = 0;
 
@@ -105,7 +149,6 @@ public class Main {
                 writer.write(mapElement.getKey() + "-" + mapElement.getValue() +"\n");
                 logs.add(mapElement.getKey() + "-" + mapElement.getValue() +"\n");
             }
-
             System.out.println(counter + " cards have been saved.");
             logs.add(counter + " cards have been saved.");
         } catch (IOException e) {
@@ -115,15 +158,23 @@ public class Main {
 
     }
 
-    private void importCards() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("File name:");
-        logs.add("File name:");
+    private void importCards(String ...arg) {
+        String fileName = "";
+        if(arg.length == 0){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("File name:");
+            logs.add("File name:");
 
-        String fileName = sc.nextLine();
-        logs.add(fileName);
+            fileName = sc.nextLine();
+            logs.add(fileName);
+        }else{
+            fileName = arg[0];
+        }
 
-        File file = new File("D:\\IntelliJ\\"+fileName);
+        //String filePath=  new File(fileName).getAbsolutePath().replace("\\","\\\\");
+        //File file = new File(filePath);
+
+       File file = new File("D:\\IntelliJ\\"+fileName);
         int counter = 0;
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNext()) {
@@ -199,7 +250,7 @@ public class Main {
                 mainObj.checkForUserInput();
                 break;
             case "export" :
-                mainObj.exportCards();
+                mainObj.exportCards(false);
                 System.out.println();
                 mainObj.checkForUserInput();
                 break;
@@ -237,19 +288,13 @@ public class Main {
     }
 
     private void findHardestCard() {
-
         if(!hardestCards.isEmpty()){
 
             List<Map.Entry<String, Integer>> list = new LinkedList<>(hardestCards.entrySet());
 
-            Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
-                @Override
-                public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                    return (o2.getValue().compareTo(o1.getValue()));
-                }
-            });
+            Collections.sort(list, (o1 , o2) -> o2.getValue().compareTo(o1.getValue()));
 
-            HashMap<String,Integer> temp =  new HashMap<>();
+            HashMap<String,Integer> temp =  new LinkedHashMap<>();
 
             for(Map.Entry<String, Integer> m : list){
                 temp.put(m.getKey(),m.getValue());
